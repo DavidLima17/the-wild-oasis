@@ -1,31 +1,33 @@
-import styled from 'styled-components';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import GlobalStyles from './styles/GlobalStyles';
-import Button from './ui/Button';
-import Input from './ui/Input';
-import Heading from './ui/Heading';
-
-const StyledApp = styled.div`
-  background-color: orangered;
-  padding: 20px;
-`;
-
+import Dashboard from './pages/Dashboard';
+import Bookings from './pages/Bookings';
+import Cabins from './pages/Cabins';
+import Login from './pages/Login';
+import Users from './pages/Users';
+import Account from './pages/Account';
+import PageNotFound from './pages/PageNotFound';
+import AppLayout from './ui/AppLayout';
 function App() {
   return (
     <>
       <GlobalStyles />
-      <StyledApp>
-        <Heading as="h1">Hello World</Heading>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="bookings" element={<Bookings />} />
+            <Route path="cabins" element={<Cabins />} />
+            <Route path="users" element={<Users />} />
+            <Route path="account" element={<Account />} />
+          </Route>
 
-        <Heading as="h2">Check in and out</Heading>
-
-        <Button onClick={() => alert('check in')}>Click Me</Button>
-        <Button onClick={() => alert('check out')}>Click Me</Button>
-
-        <Heading as="h3">forms</Heading>
-        <Input type="number" placeholder="Number of guests" />
-        <Input type="number" placeholder="Number of guests" />
-      </StyledApp>
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
