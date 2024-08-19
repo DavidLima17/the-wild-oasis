@@ -82,7 +82,7 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/account">
+          <StyledNavLink to="/settings">
             <HiOutlineCog />
             <span>Settings</span>
           </StyledNavLink>

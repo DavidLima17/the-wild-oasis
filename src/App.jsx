@@ -8,8 +8,9 @@ import Dashboard from './pages/Dashboard';
 import Bookings from './pages/Bookings';
 import Cabins from './pages/Cabins';
 import Login from './pages/Login';
-import Users from './pages/Users';
 import Account from './pages/Account';
+import Users from './pages/Users';
+import Settings from './pages/Settings';
 import PageNotFound from './pages/PageNotFound';
 import AppLayout from './ui/AppLayout';
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="cabins" element={<Cabins />} />
             <Route path="users" element={<Users />} />
             <Route path="account" element={<Account />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
 
           <Route path="login" element={<Login />} />
