@@ -38,12 +38,15 @@ const FilterButton = styled.button`
 function Filter({ filteredField, options }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentFilter = searchParams.get(filteredField) || options[0].value;
+  const page = searchParams.get('page');
 
   function handleClick(value) {
+    if (page) searchParams.delete('page');
     searchParams.set(filteredField, value);
     setSearchParams(searchParams);
     console.log(value);
   }
+
   return (
     <StyledFilter>
       {options.map((option) => (
