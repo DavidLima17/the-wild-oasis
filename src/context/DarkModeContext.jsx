@@ -30,4 +30,5 @@ function useDarkMode() {
   return context;
 }
 
+//eslint-disable-next-line
 export { DarkModeProvider, useDarkMode };
